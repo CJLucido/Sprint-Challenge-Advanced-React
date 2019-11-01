@@ -10,11 +10,9 @@ class Display extends React.Component {
     this.state = {
       playerData: []
     };
-    console.log("Constructor is running!");
   }
 
   componentDidMount() {
-    console.log("CDM is running");
     
     //this.setState({ pokemon: data }); // pretend this is fetching from an API
     axios.get('http://localhost:5000/api/players')
@@ -26,9 +24,6 @@ class Display extends React.Component {
     });
   }
 
-  componentDidUpdate() {
-    
-  }
 
   render() {
     
@@ -39,6 +34,7 @@ class Display extends React.Component {
           this.state.playerData.map(item => 
             <Player
              key={item.id}
+             playerId={item.id}
              playerName={item.name}
              playerCountry={item.country}
              playerSearches={item.searches}

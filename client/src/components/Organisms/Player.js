@@ -1,16 +1,27 @@
 import React from 'react'
 
-export default  function Player({ playerName,
+import useLocalStorage from "../../hooks/useLocalStorage"
+
+export default  function Player({playerId,  playerName,
     playerCountry,
     playerSearches}){
 
+const [, setMostImportant] = useLocalStorage("Most Important")
+
+
+
+const favoritePlayer = () => {
+        setMostImportant(playerName)
+
+}
 
     return (
-            <div data-testid="player-container">
+
+            <div data-testid="player-container">    
                 <p >Name: {playerName}</p>
                 <p >Country: {playerCountry}</p>
                 <p >Searches: {playerSearches}</p>
-
+                <button onClick={() => favoritePlayer()}>Most Important</button>
             
             </div>
     )
