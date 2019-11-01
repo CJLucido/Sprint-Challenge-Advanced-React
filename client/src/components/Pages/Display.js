@@ -1,12 +1,14 @@
 import React from "react";
+import axios from 'axios'
 
+import Player from '../Organisms/Player'
 
 
 class Display extends React.Component {
   constructor() {
     super();
     this.state = {
-      players: []
+      playerData: []
     };
     console.log("Constructor is running!");
   }
@@ -15,21 +17,41 @@ class Display extends React.Component {
     console.log("CDM is running");
     
     //this.setState({ pokemon: data }); // pretend this is fetching from an API
+    axios.get('http://localhost:5000/api/players')
+    .then(response => {
+      this.setState({playerData: response.data})
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 
   componentDidUpdate() {
-    console.log("CDU is runninnnnnn");
+    
   }
 
   render() {
-    console.log("component is rendering!");
+    
 
     return (
       <div data-testid="display-container">
-        PlayerCard
+      {
+          this.state.playerData.map(item => 
+            <Player
+             key={item.id}
+             playerName={item.name}
+             playerCountry={item.country}
+             playerSearches={item.searches}
+            
+             />
+            
+            )
+      }
+            
       </div>
     );
   }
 }
 
 export default Display;
+//<Player playerData={playerData}/>

@@ -6,4 +6,8 @@ it('renders without crashing', () => {
  
  render(<App />);
  
-});
+})
+it('checks for App header', () => {
+  const {getByTestId} = render(<App />)
+  getByTestId( "header-display")
+})
