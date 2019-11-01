@@ -18,7 +18,7 @@ function App() {
       }
       </div>
       <button onClick={() => handleIt()}>There's only 1</button>
-      <button onClick={() => handleItBetter(Number(whateverIWant))}>The majority are good</button>
+      <button onClick={() => handleItBetter(whateverIWant)}>The majority are good</button>
 
       <Display/>
     </div>

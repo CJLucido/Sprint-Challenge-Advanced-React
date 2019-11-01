@@ -10,13 +10,12 @@ export default function useSomething(){
     }
 
     const handleSomethingLessPetty = (number) => {
-     console.log(number)
-        if(number > 100){
-           
-            return setSomethings(number === 0)
+    
+        if(number < -99){ 
+             setSomethings(0)
         }
         else{
-            return setSomethings(number - 1)
+            setSomethings(number - 1)
         }
     }
 
