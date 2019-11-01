@@ -14,8 +14,12 @@ export default function useSomething(){
         if(number < -99){ 
              setSomethings(0)
         }
-        else{
+        else if(number === 99){
+            setSomethings(number + 1)
+        } else if (number > 99) {
             setSomethings(number - 1)
+        } else{
+            setSomethings(99)
         }
     }
 
