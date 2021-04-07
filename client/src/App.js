@@ -1,24 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import Display from "./components/Pages/Display"
+import useSomething from "./hooks/useSomething"
+
 function App() {
+
+  const [whateverIWant, , handleIt, handleItBetter] = useSomething()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <h1 data-testid="header-display">Women's World Cup players</h1>
+     
+      <div>Number of <i>REAL</i> players
+      {
+        whateverIWant
+      }
+      </div>
+      <button onClick={() => handleIt()}>There's only 1</button>
+      <button onClick={() => handleItBetter(whateverIWant)}>The majority are good</button>
+
+      <Display/>
     </div>
   );
 }
